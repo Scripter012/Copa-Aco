@@ -245,15 +245,6 @@ body::before {
   background: var(--gold);
 }
 
-/* SCAN COUNTER */
-.scan-field { grid-column: 1 / -1; }
-.scan-count {
-  font-size: 1.6rem !important;
-  font-family: 'Bebas Neue', sans-serif !important;
-  letter-spacing: 4px;
-  color: var(--navy) !important;
-}
-
 /* DATA TABLE */
 .data-table {
   display: grid;
@@ -437,10 +428,6 @@ body::before {
         <span class="f-label">Organiza</span>
         <span class="f-value">ACO Oficial</span>
       </div>
-      <div class="data-field scan-field">
-        <span class="f-label">Total de Escaneos</span>
-        <span class="f-value scan-count" id="scanCount">0</span>
-      </div>
     </div>
   </div>
 
@@ -455,20 +442,6 @@ body::before {
 </div>
 
 <script>
-// Scan counter
-const key = 'copa_aco_scans';
-let scans = parseInt(localStorage.getItem(key) || '0');
-document.getElementById('scanCount').textContent = scans;
-
-document.querySelector('.main-card').addEventListener('click', function() {
-  scans++;
-  localStorage.setItem(key, scans);
-  const el = document.getElementById('scanCount');
-  el.textContent = scans;
-  el.style.color = 'var(--green)';
-  setTimeout(() => el.style.color = 'var(--navy)', 600);
-});
-
 
   const now = new Date();
   const d = now.toLocaleDateString('es-MX',{day:'2-digit',month:'2-digit',year:'numeric'});
